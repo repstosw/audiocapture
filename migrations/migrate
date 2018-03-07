@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# needs goose installed, i.e. go get -u github.com/pressly/goose/cmd/goose
+
+# bring in credentials
+source ~/bin/jesse_devops
+
+export GOOSE_DBSTRING="host=db.jessebanks.wtf user=$PG_USER password=$PG_PASS dbname=audiocapture"
+
+goose postgres "$GOOSE_DBSTRING" $@
